@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sterile Field — Surgical Technologist Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #132240;
+    --navy-light: #1e3560;
+    --teal: #00b4b0;
+    --teal-dim: #007f7d;
+    --teal-pale: #e0f7f7;
+    --gold: #c8963e;
+    --gold-pale: #fdf3e2;
+    --red: #b03030;
+    --red-pale: #fdeaea;
+    --green: #1e7a4a;
+    --green-pale: #e5f5ec;
+    --purple: #5b3d9e;
+    --purple-pale: #eeebf9;
+    --slate: #4a5568;
+    --muted: #718096;
+    --border: #dde3ec;
+    --bg: #f5f7fb;
+    --white: #ffffff;
+    --text: #1a202c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,180,176,0.15) 0%, transparent 70%);
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 30%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(91,61,158,0.1) 0%, transparent 70%);
+  }
+  .header-inner { max-width: 960px; margin: 0 auto; position: relative; }
+  .header-kicker {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+  .header-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1.25rem; }
+  .hbadge {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+    padding: 4px 12px; border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.65);
+    background: rgba(255,255,255,0.07);
+  }
+
+  /* ── NAV ── */
+  .nav-wrap {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .nav-inner {
+    max-width: 960px; margin: 0 auto;
+    display: flex; overflow-x: auto; scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-tab {
+    flex-shrink: 0;
+    padding: 1rem 1.4rem;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.3px;
+    color: var(--muted);
+    border: none; background: transparent; cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: color 0.18s, border-color 0.18s;
+    white-space: nowrap;
+  }
+  .nav-tab:hover { color: var(--text); }
+  .nav-tab.active { color: var(--navy); border-bottom-color: var(--teal); }
+  .tab-icon { display: inline-block; margin-right: 6px; font-size: 14px; }
+
+  /* ── CONTENT ── */
+  .content-wrap {
+    max-width: 960px; margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ── HEADINGS ── */
+  .section-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.55rem; color: var(--navy); margin-bottom: 4px;
+  }
+  .section-sub {
+    color: var(--muted); font-size: 13px;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .sub-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.8px;
+    text-transform: uppercase; color: var(--muted);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  /* ── ALERTS ── */
+  .alert {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 14px 16px; border-radius: 10px;
+    margin-bottom: 1.25rem; font-size: 14px; line-height: 1.6;
+  }
+  .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .alert-teal  { background: var(--teal-pale);   border-left: 4px solid var(--teal); }
+  .alert-gold  { background: var(--gold-pale);   border-left: 4px solid var(--gold); }
+  .alert-red   { background: var(--red-pale);    border-left: 4px solid var(--red); }
+  .alert-green { background: var(--green-pale);  border-left: 4px solid var(--green); }
+  .alert-purple{ background: var(--purple-pale); border-left: 4px solid var(--purple); }
+  .alert-navy  { background: #e8ecf4;            border-left: 4px solid var(--navy-light); }
+
+  /* ── CARDS ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1rem; margin-bottom: 1.25rem;
+  }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.35rem;
+  }
+  .card-full { grid-column: 1 / -1; }
+  .card-title {
+    font-size: 12px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .card-title-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px; border-radius: 6px; font-size: 13px;
+  }
+  .icon-teal   { background: var(--teal-pale);   color: var(--teal-dim); }
+  .icon-gold   { background: var(--gold-pale);   color: var(--gold); }
+  .icon-red    { background: var(--red-pale);    color: var(--red); }
+  .icon-green  { background: var(--green-pale);  color: var(--green); }
+  .icon-navy   { background: #e8ecf4;            color: var(--navy); }
+  .icon-purple { background: var(--purple-pale); color: var(--purple); }
+
+  /* ── LISTS ── */
+  ul.detail-list { list-style: none; padding: 0; }
+  ul.detail-list li {
+    padding: 7px 0 7px 22px; position: relative;
+    font-size: 14px; color: var(--slate);
+    border-bottom: 1px solid var(--bg); line-height: 1.6;
+  }
+  ul.detail-list li:last-child { border-bottom: none; }
+  ul.detail-list li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--teal); font-size: 11px; top: 9px;
+  }
+  ul.detail-list li strong { color: var(--text); }
+  ul.detail-list ul.sub-list li::before { content: none; }
+
+  ul.sub-list {
+    margin-top: 6px; padding-left: 1rem;
+    list-style: disc; color: var(--muted); font-size: 13px;
+  }
+  ul.sub-list li { padding: 2px 0; border: none; }
+
+  /* ── STEP SEQUENCE ── */
+  .steps {
+    display: flex; flex-direction: column; gap: 0;
+    counter-reset: step; position: relative; padding-left: 38px;
+  }
+  .steps::before {
+    content: ''; position: absolute;
+    left: 15px; top: 20px; bottom: 20px;
+    width: 2px; background: var(--border);
+  }
+  .step-item { position: relative; padding: 0 0 18px 0; counter-increment: step; }
+  .step-item::before {
+    content: counter(step);
+    position: absolute; left: -38px; top: 0;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: #fff;
+    font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; z-index: 1;
+  }
+  .step-item p { font-size: 14px; color: var(--slate); line-height: 1.6; }
+  .step-item strong { color: var(--text); font-weight: 600; }
+
+  /* ── BADGES ── */
+  .badge {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.3px; padding: 3px 9px; border-radius: 100px;
+  }
+  .badge-teal   { background: var(--teal-pale);   color: var(--teal-dim); }
+  .badge-red    { background: var(--red-pale);    color: var(--red); }
+  .badge-gold   { background: var(--gold-pale);   color: #a07020; }
+  .badge-green  { background: var(--green-pale);  color: var(--green); }
+  .badge-navy   { background: #e8ecf4;            color: var(--navy-light); }
+  .badge-purple { background: var(--purple-pale); color: var(--purple); }
+
+  /* ── TABLE ── */
+  .data-table {
+    width: 100%; border-collapse: collapse; font-size: 13.5px;
+    background: var(--white); border-radius: 10px; overflow: hidden;
+    border: 1px solid var(--border); margin-bottom: 1.25rem;
+  }
+  .data-table th {
+    background: var(--navy); color: #fff;
+    padding: 11px 14px; text-align: left;
+    font-weight: 600; font-size: 12px; letter-spacing: 0.5px;
+  }
+  .data-table td {
+    padding: 10px 14px; border-bottom: 1px solid var(--border);
+    color: var(--slate); vertical-align: top; line-height: 1.5;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:nth-child(even) td { background: var(--bg); }
+
+  /* ── ACCORDION ── */
+  .accordion { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 1.25rem; }
+  .acc-head {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px; background: var(--navy); cursor: pointer; user-select: none;
+  }
+  .acc-head:hover { background: var(--navy-mid); }
+  .acc-head-left { flex: 1; }
+  .acc-head-tag { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 2px; }
+  .acc-head-title { font-size: 15px; font-weight: 600; color: #fff; }
+  .acc-chevron { color: rgba(255,255,255,0.5); font-size: 16px; transition: transform 0.2s; flex-shrink: 0; }
+  .acc-chevron.open { transform: rotate(180deg); }
+  .acc-body { display: none; padding: 18px; border-top: 1px solid var(--border); }
+  .acc-body.open { display: block; }
+
+  /* ── STAT ROW ── */
+  .stat-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px; margin-bottom: 1.25rem;
+  }
+  .stat-box {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 12px; text-align: center;
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif; font-size: 1.5rem;
+    color: var(--navy); line-height: 1; margin-bottom: 4px;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+  /* ── SEQUENCE FLOW ── */
+  .seq-flow {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    align-items: center; margin-bottom: 1.25rem;
+  }
+  .seq-item {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 14px;
+    font-size: 13px; font-weight: 500; color: var(--navy);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .seq-num {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--teal-pale); color: var(--teal-dim);
+    font-size: 11px; font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .seq-arrow { color: var(--muted); font-size: 14px; }
+
+  /* ── CONTAMINATION BAR ── */
+  .contam-chart { margin-bottom: 1.25rem; }
+  .contam-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .contam-label { font-size: 12px; color: var(--muted); width: 55px; flex-shrink: 0; text-align: right; }
+  .contam-bar-wrap { flex: 1; background: var(--border); border-radius: 100px; height: 20px; position: relative; overflow: hidden; }
+  .contam-bar { height: 100%; border-radius: 100px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-size: 11px; font-weight: 700; color: white; }
+  .contam-val { font-size: 12px; font-weight: 600; color: var(--text); width: 36px; flex-shrink: 0; }
+
+  /* ── PRINCIPLE GRID ── */
+  .principle-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px; margin-bottom: 1.25rem;
+  }
+  .principle-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px;
+  }
+  .principle-letter {
+    font-family: 'DM Serif Display', serif; font-size: 1.3rem;
+    color: var(--teal-dim); line-height: 1; margin-bottom: 6px;
+  }
+  .principle-text { font-size: 13px; color: var(--slate); line-height: 1.5; }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:600px){
+    .header h1 { font-size: 1.6rem; }
+    .card-grid { grid-template-columns: 1fr; }
+    .stat-row { grid-template-columns: repeat(2,1fr); }
+    .seq-flow { flex-direction: column; align-items: flex-start; }
+    .principle-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="header-kicker">AST Guidelines for Best Practices · CST Reference</div>
+    <h1>The Sterile Field</h1>
+    <p class="header-sub">Establishing & Breaking Down · Surgical Technologist Study Guide</p>
+    <div class="header-badges">
+      <span class="hbadge">Principles of Asepsis</span>
+      <span class="hbadge">Surgical Conscience</span>
+      <span class="hbadge">Economy of Motion</span>
+      <span class="hbadge">OSHA / AAMI / CDC</span>
+      <span class="hbadge">Standard Precautions</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <button class="nav-tab active" onclick="showTab('establishing', this)"><span class="tab-icon">🏗️</span>Establishing</button>
+    <button class="nav-tab" onclick="showTab('breaking', this)"><span class="tab-icon">🧹</span>Breaking Down</button>
+    <button class="nav-tab" onclick="showTab('principles', this)"><span class="tab-icon">📐</span>Core Principles</button>
+    <button class="nav-tab" onclick="showTab('standards', this)"><span class="tab-icon">🏛️</span>Standards & Refs</button>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <!-- ════════════════════════════════════
+       TAB 1: ESTABLISHING THE STERILE FIELD
+  ════════════════════════════════════ -->
+  <div id="establishing" class="section active">
+    <h2 class="section-heading">Establishing the Sterile Field</h2>
+    <p class="section-sub">AST Guidelines I – VI & VIII: pre-op preparation, opening sterile items, back table & Mayo stand setup, and electrosurgery safety. Revised November 4, 2019.</p>
+
+    <div class="alert alert-teal">
+      <span class="alert-icon">🎯</span>
+      <div><strong>Core principle:</strong> Surgical team members must rigorously adhere to the principles of asepsis for every surgical procedure to reduce the risk of SSI. If a break in sterile technique occurs, it must be immediately communicated to all team members and corrective action taken.</div>
+    </div>
+
+    <!-- GUIDELINE I -->
+    <p class="sub-label">Guideline I — Pre-op preparation</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-teal">📋</span>Surgeon's preference card cross-check</div>
+      <ul class="detail-list">
+        <li>Cross-check the surgeon's preference card against all instruments, supplies, and equipment that have been "pulled" for the procedure to confirm everything needed is available</li>
+        <li>If updates or corrections are needed, note items to be corrected and provide to the individual responsible for updating electronic preference cards</li>
+      </ul>
+    </div>
+
+    <!-- GUIDELINE II -->
+    <p class="sub-label">Guideline II — OR furniture & equipment setup</p>
+    <div class="alert alert-gold">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>Critical rule:</strong> All OR furniture and equipment must be grouped and positioned <em>before</em> any sterile items are opened.</div>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-navy">🛏️</span>Equipment verification</div>
+        <ul class="detail-list">
+          <li>Verify all furniture (IV stands, stools, anesthesia cart) and equipment (ESU, suction system) are in the OR</li>
+          <li>Remove any unnecessary furniture and equipment</li>
+          <li>Test ESU, patient monitors, suction, tourniquet, microscope, and specialty equipment for functionality before the patient enters</li>
+          <li>Place new suction liners in canister; confirm suction tubing connected to wall vacuum</li>
+          <li>Prepare a separate suction system for the anesthesia provider</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-gold">📏</span>Furniture positioning rules</div>
+        <ul class="detail-list">
+          <li>Position the sterile field as <strong>far as possible from the OR doors</strong> — door openings stir up particles that can contaminate the sterile field</li>
+          <li>Back table, Mayo stand, and basin ring stand must be positioned a <strong>minimum of 12 inches</strong> from walls and other non-sterile furniture</li>
+          <li>Linen/trash hampers, sponge buckets, and stools must be kept away from the sterile field and traffic patterns</li>
+          <li>A biohazard bag must be positioned in linen and trash hampers; sponge buckets lined with an impervious biohazard bag</li>
+          <li>OR table positioned per surgeon's preference under the OR lights</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- GUIDELINE III -->
+    <p class="sub-label">Guideline III — Opening sterile items</p>
+    <p class="sub-label" style="margin-top:0.25rem;font-size:10px;letter-spacing:1px">Recommended sequence</p>
+    <div class="seq-flow">
+      <div class="seq-item"><span class="seq-num">1</span>Back table pack</div>
+      <span class="seq-arrow">→</span>
+      <div class="seq-item"><span class="seq-num">2</span>Basin set</div>
+      <span class="seq-arrow">→</span>
+      <div class="seq-item"><span class="seq-num">3</span>Small wrapped items (sterile towel pack)</div>
+      <span class="seq-arrow">→</span>
+      <div class="seq-item"><span class="seq-num">4</span>Peel packs & suture</div>
+      <span class="seq-arrow">→</span>
+      <div class="seq-item"><span class="seq-num">5</span>Instrument sets / trays</div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-teal">✅</span>Pre-opening verification (every item)</div>
+        <ul class="detail-list">
+          <li><strong>Chemical indicator / integrator</strong> has changed color — confirms exposure to sterilization process</li>
+          <li><strong>Packaging integrity</strong> is intact — no perforations, tears, or evidence of strike-through contamination</li>
+          <li><strong>Expiration date</strong> confirmed, if present</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-navy">📦</span>Opening technique rules</div>
+        <ul class="detail-list">
+          <li>Gown and gloves for the CST must be opened on a <strong>separate flat surface</strong> (Mayo stand) — never on the sterile back table</li>
+          <li>Small items and peel packs are "flipped" onto the sterile field using sterile technique; the glued area is the boundary between sterile and non-sterile</li>
+          <li>Non-sterile person must never reach over the sterile field</li>
+          <li>Heavy/large peel pack items should be opened into a basin on a ring stand or passed using sterile technique — not flipped (risk of puncturing sterile cover)</li>
+          <li>Open items in a grouping manner on all cases to build a standard routine</li>
+          <li>Sharps grouped in one corner; no other items opened near sharps to avoid covering/hiding them</li>
+          <li>Drapes opened in <strong>reverse order of use</strong> — last drape used is opened first (goes on bottom)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-gold">🔒</span>Rigid instrument container inspection</div>
+        <ul class="detail-list">
+          <li>Filter and/or valve system intact</li>
+          <li>Chemical indicator on lock changed to correct color</li>
+          <li>Locking mechanisms intact (if not, set = contaminated)</li>
+          <li>Gasket intact, if present (if not, set = contaminated)</li>
+          <li>Lid lifted straight upward; CST steps back; lid stored inside case cart</li>
+          <li>CST removes basket <strong>vertically</strong> without gloves or basket touching outside of container</li>
+          <li>If indicator not changed, filter perforated, or residual condensate present → instrument set is non-sterile</li>
+          <li>CST changes gloves after handing contaminated tray to circulator</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-red">📦</span>Dropped packages</div>
+        <ul class="detail-list">
+          <li><strong>Pervious (woven/permeable) wrapping:</strong> must be considered unsterile — airborne contaminants implode into the package upon impact. Return to decontamination for reprocessing.</li>
+          <li><strong>Impervious (non-permeable) wrapping:</strong> may be considered sterile if packaging integrity is not compromised. Must be opened for immediate use — cannot be returned to shelf storage. Must be inspected carefully; contact area must be dry.</li>
+          <li>If impervious packaging is compromised (punctures, tears, strike-through) → non-sterile; reusable items returned to decontamination</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-red">🔬</span>Foreign particles (FP)</div>
+        <ul class="detail-list">
+          <li>If a foreign particle (lint, bone fragment, burned tissue, hair) is found inside a sterile package — the package is <strong>non-sterile and must not be used</strong></li>
+          <li>FP consequences: adhesions, excessive scarring, delayed healing, granuloma formation, infections, poor scar strength, prolonged inflammation</li>
+          <li>Inspect orthopedic bone-cutting instruments for bone/tissue fragments</li>
+          <li>If FP identified, CST passes item to circulator and changes sterile gloves</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- GUIDELINE V -->
+    <p class="sub-label">Guideline V — Timing & single-patient sterile fields</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-purple">⏱️</span>Timing rules</div>
+        <ul class="detail-list">
+          <li>Sterile fields established <strong>as close to the scheduled time of surgery as possible</strong></li>
+          <li>Airborne contamination increases with time — dust and particles settle onto sterile surfaces</li>
+          <li>CST must <strong>not break scrub</strong> after setting up the sterile field — the field must remain under constant observation</li>
+          <li>A sterile field not kept under constant observation must be considered non-sterile and broken down</li>
+          <li>CST must <strong>not sit down</strong> while maintaining the sterile field; sitting changes gown sterility level — the CST must regown before returning to the back table if they sat</li>
+          <li>Exception: CST may sit only once the patient is draped and the surgeon is ready to make the incision (and only if surgeon will be seated for the procedure)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-teal">🏥</span>One patient, one sterile field</div>
+        <ul class="detail-list">
+          <li>Only one patient occupies an OR; only a single sterile field is established</li>
+          <li>Two simultaneous procedures with two sterile fields dramatically increases cross-contamination risk and limits safe traffic patterns</li>
+          <li>If a patient requires surgery at two anatomical sites, two entirely separate sterile set-ups must be used — each exclusively for its site</li>
+          <li>If one site has a tumor, instruments must not be shared with another site (risk of transferring cancerous cells)</li>
+          <li>If procedure is cancelled after sterile field is established but <em>before</em> patient entered OR, and the next case is the same/similar procedure, the room may still be used</li>
+          <li>If patient was brought into the OR and procedure cancelled, sterile field is contaminated — break down and clean the OR</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sub-label" style="margin-top:0;font-size:10px">Dalstrom et al. — contamination rate of uncovered open sterile trays over time</p>
+    <div class="contam-chart">
+      <div class="contam-row">
+        <div class="contam-label">30 min</div>
+        <div class="contam-bar-wrap"><div class="contam-bar" style="width:13%;background:#2d9e75;">4%</div></div>
+        <div class="contam-val">4%</div>
+      </div>
+      <div class="contam-row">
+        <div class="contam-label">1 hr</div>
+        <div class="contam-bar-wrap"><div class="contam-bar" style="width:50%;background:#c8963e;">15%</div></div>
+        <div class="contam-val">15%</div>
+      </div>
+      <div class="contam-row">
+        <div class="contam-label">2 hr</div>
+        <div class="contam-bar-wrap"><div class="contam-bar" style="width:73%;background:#c06030;">22%</div></div>
+        <div class="contam-val">22%</div>
+      </div>
+      <div class="contam-row">
+        <div class="contam-label">3 hr</div>
+        <div class="contam-bar-wrap"><div class="contam-bar" style="width:87%;background:#b03030;">26%</div></div>
+        <div class="contam-val">26%</div>
+      </div>
+      <div class="contam-row">
+        <div class="contam-label">4 hr</div>
+        <div class="contam-bar-wrap"><div class="contam-bar" style="width:100%;background:#8b1a1a;">30%</div></div>
+        <div class="contam-val">30%</div>
+      </div>
+    </div>
+    <div class="alert alert-green" style="margin-bottom:1.25rem">
+      <span class="alert-icon">✅</span>
+      <div><strong>Covered trays:</strong> In the same study, trays covered with a sterile surgical towel showed <strong>zero contamination</strong> during the entire testing period. Recommendation: uncovered sterile trays not immediately used should be covered with a sterile towel.</div>
+    </div>
+
+    <!-- GUIDELINE VI: Back table & Mayo -->
+    <p class="sub-label">Guideline VI — Back table & Mayo stand setup</p>
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Guideline VI · Economy of Motion</div>
+          <div class="acc-head-title">Back table setup — detailed rules</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li><strong>Items used first organized first:</strong> typical top-to-bottom order — gowns & gloves for other sterile team members → draping items (4 towels for squaring off incision) → light handle covers → corded items (Bovie, suction tubing)</li>
+          <li><strong>Back table reinforcement:</strong> lay opened sterile cloth (green/blue) towels edge-to-edge over the back table cover. Do not use thin lightweight sterile paper towels — insufficient reinforcement</li>
+          <li><strong>Medicine cups and basins:</strong> place as close to edge as possible so circulator can pour solutions without reaching over the sterile field; reposition away from edge after pouring. Entire contents must be poured out — cap must not be replaced; sterility of partially-poured containers cannot be guaranteed</li>
+          <li><strong>Labels / skin markers:</strong> must be available on any case using dyes, medications, or solutions. All containers and syringes labeled per AST Guidelines for Safe Medication Practices</li>
+          <li><strong>Sharps grouping:</strong> all sharps placed together near the back-table sharps container, positioned in an easily accessible corner. Suture arranged in sequence of use</li>
+          <li><strong>Sponges:</strong> arranged left to right by size (lap sponges then 4×4s) in an upper corner; band left on until count time</li>
+          <li><strong>Basins:</strong> one basin designated for patient irrigation; a second for wetting sponges — the sponge basin is used only for sponges (lint released into solution can cause foreign body reaction and granulomas)</li>
+          <li><strong>Instruments — ratchet check:</strong> before removing any ratcheted instrument, confirm all are open. One ratcheted instrument = entire tray considered contaminated (ratcheted position prevents sterilant penetration)</li>
+          <li><strong>Instruments on stringer:</strong> place on a roll towel and remove the stringer</li>
+          <li><strong>Heavy instruments</strong> kept in tray or placed flat on back table; sharp retractors positioned to prevent injury when retrieved</li>
+          <li><strong>Forceps</strong> (Adson, DeBakey) must never be hung over the edge of the instrument tray — damages tips. Lay flat on back table</li>
+          <li><strong>Tip protectors / sleeves:</strong> remove from all instruments and remove from sterile field. Not radiopaque; risk of becoming a retained surgical item (RSI)</li>
+          <li><strong>Irrigation / IV solutions</strong> used for one patient only; leftover solution must not be used for another procedure</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Guideline VI · Mayo Stand</div>
+          <div class="acc-head-title">Mayo stand setup — detailed rules</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>The underside of a sterile-draped Mayo stand is considered sterile — the cylindrical Mayo stand drape encloses the upper portion, ensuring the sterility of the underside. Sterile items (ESU cord, power cords, suction tubing) positioned underneath are sterile</li>
+          <li>Reinforce top of Mayo stand cover with a sterile cloth towel — not thin paper towels</li>
+          <li>Select the most frequently used instruments for Mayo stand placement</li>
+          <li>Place instruments in even numbers on the Mayo stand</li>
+          <li>Group similar instruments together (mirrors back table grouping)</li>
+          <li>Instruments only closed to the <strong>first ratchet</strong> — allows surgeon to quickly open instrument for use</li>
+          <li>Sharp placement must allow the CST to safely pick up and pass to surgeon or neutral zone</li>
+          <li>Recommended: use a roll towel or foam roll — ring handles placed over the rolled towel, not over the edge of the Mayo stand</li>
+          <li>Curved instruments grouped together with curves facing one direction</li>
+          <li>Skin marker, needle on syringe (local anesthetic), and skin knife included for initial use; moved to back table after initial use</li>
+          <li><strong>Sterile suture bag</strong> placed on the side of the Mayo stand opposite the operative side — minimizes risk of suture waste entering the wound. Must not be placed on back table (items extending below the table edge are non-sterile)</li>
+          <li>If suture bag must be searched (e.g., incorrect sharp count), hand off to circulator to empty safely — prevents CST sharps injury</li>
+          <li>Mayo stand setup may change during the intraoperative phase as procedure demands shift</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- GUIDELINE VIII -->
+    <p class="sub-label">Guideline VIII — Electrosurgery active electrode safety</p>
+    <div class="card">
+      <div class="card-title"><span class="card-title-icon icon-red">⚡</span>Active electrode (Bovie) handpiece control</div>
+      <ul class="detail-list">
+        <li>The active electrode handpiece must <strong>always</strong> be placed in a dry, nonconductive safety holster when not in use — the most effective method for preventing inadvertent activation</li>
+        <li>Inadvertent activation can arc through drapes causing immediate ignition of drapes or vapors from flammable skin prep agents collected beneath drapes</li>
+        <li>PA-PSRS data: ~56% of all electrosurgery-related events are attributed to inadvertent activation; 14% of those are due to not placing the handpiece in a safety holster</li>
+        <li>Safety holster attached to the sterile field using an <strong>atraumatic (non-perforating) towel clamp</strong> — traumatic (perforating) clamps create holes that allow microorganisms to migrate onto the sterile field from the patient's skin</li>
+        <li>If a perforating towel clamp is used: remove it, pass off the sterile field, replace the drape — covering holes with green towels or a ¾ sheet is not adequate</li>
+        <li>Endoscopic handpieces (too long for standard holster) should be placed on the Mayo stand</li>
+        <li>The sterile ESU cord must not be strung through handles of or wrapped around a metal clamp — current can leak; also prevents damage to the cord</li>
+        <li>If surgeon refuses the holster, this must be documented in the operative record</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       TAB 2: BREAKING DOWN THE STERILE FIELD
+  ════════════════════════════════════ -->
+  <div id="breaking" class="section">
+    <h2 class="section-heading">Breaking Down the Sterile Field</h2>
+    <p class="section-sub">AST Guidelines I – II: maintaining sterility post-closure, wound dressing, PPE, gown/glove removal, sharps disposal, and point-of-use instrument decontamination. Revised June 1, 2018.</p>
+
+    <div class="alert alert-teal">
+      <span class="alert-icon">🎯</span>
+      <div><strong>Core principle:</strong> Properly breaking down the sterile field is as important as establishing it. The CST in the first scrub role is responsible for breakdown because they know the location of all sharps and contaminated items. The CST must remain focused on the patient — complications can occur during the immediate postoperative phase and the team must be ready to respond.</div>
+    </div>
+
+    <!-- GUIDELINE I -->
+    <p class="sub-label">Guideline I — Remain sterile until patient leaves the OR</p>
+    <div class="alert alert-gold">
+      <span class="alert-icon">⚠️</span>
+      <div>The CST must remain sterile and maintain sterility of the back table, Mayo stand, and basin set until the patient has been transported out of the OR. Breaking down early to improve turnover time is a questionable practice that compromises patient safety.</div>
+    </div>
+
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-teal">🩹</span>Wound dressing sequence</div>
+      <ul class="detail-list">
+        <li>Ensure all sharps, instruments, and non-disposable items are removed from the drapes before the sterile dressing is applied</li>
+        <li>Use a <strong>saline-soaked sponge</strong> to gently clean the skin around the wound; dry with a dry sponge. Do not disrupt the wound or dislodge drains</li>
+        <li>If double gloved: remove the <strong>outer glove first</strong> before assisting with sterile dressing application — prevents blood and body fluids on the outer glove from contacting the sterile dressing</li>
+        <li>After dressing is placed, remove drapes by rolling them so the <strong>exterior is contained within itself</strong></li>
+        <li>Do not throw drapes from any distance into waste containers — risk of splattering blood and body fluids on floor, walls, furniture, or other team members</li>
+        <li>Drapes placed in impervious biohazard-labeled bags for contaminated hazardous waste</li>
+      </ul>
+    </div>
+
+    <!-- GUIDELINE II -->
+    <p class="sub-label">Guideline II — Gown & glove removal (Standard Precautions)</p>
+    <div class="alert alert-red">
+      <span class="alert-icon">🚫</span>
+      <div><strong>Order is non-negotiable: Gown first, then gloves.</strong> Removing gloves first exposes hands to blood and body fluids on the gown exterior, causing cross-contamination.</div>
+    </div>
+
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-red">🥼</span>Gown removal & disposal</div>
+      <ul class="detail-list">
+        <li>Always removed first, before gloves</li>
+        <li>Roll the gown so that the <strong>exterior is contained within itself</strong> as it is removed</li>
+        <li>Do not throw from any distance — risk of blood/body fluid splatter</li>
+        <li>Place in red or yellow-colored impervious biohazard bag — WHO recommends yellow-colored bags for contaminated hazardous waste</li>
+      </ul>
+    </div>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-red">🧤</span>Glove removal & disposal</div>
+      <ul class="detail-list">
+        <li>Removed carefully to prevent splashing blood and body fluids</li>
+        <li>Do not throw or "sling-shot" into waste containers — risk of splatter and eye exposure</li>
+        <li>Place in impervious biohazard-labeled bag</li>
+        <li>Perform <strong>medical hand wash</strong> immediately after removing gloves</li>
+      </ul>
+    </div>
+
+    <p class="sub-label">Guideline II — Donning PPE for breakdown</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-gold">🛡️</span>PPE requirements during breakdown</div>
+      <ul class="detail-list">
+        <li>Continue to wear <strong>head cover, mask, and eye protection</strong> throughout breakdown</li>
+        <li>After removing the sterile gown and gloves, don <strong>non-sterile gloves</strong> and a <strong>non-sterile protective medical gown</strong></li>
+        <li>PPE protects against bloodborne pathogen exposure during breakdown and instrument handling</li>
+      </ul>
+    </div>
+
+    <!-- ECONOMY OF MOTION FOR BREAKDOWN -->
+    <p class="sub-label">Guideline II — Economy of motion for breakdown</p>
+    <div class="card-grid">
+      <div class="card card-full">
+        <div class="card-title"><span class="card-title-icon icon-teal">⚡</span>Principles of economy of motion — breakdown</div>
+        <ul class="detail-list">
+          <li>Move as little as possible</li>
+          <li>Motions should be simple, productive, minimal, and non-repetitive</li>
+          <li>Move as smoothly and rapidly as possible without compromising safety</li>
+          <li>Establish a logical, sequential, and efficient pattern for breaking down the back table and Mayo stand</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SHARPS DISPOSAL -->
+    <p class="sub-label">Guideline II — Sharps disposal</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-red">⚠️</span>Sharps disposal — OSHA compliant</div>
+      <ul class="detail-list">
+        <li>Knife blades, hypodermic needles, and suture needles are placed in the <strong>small rigid sharps container</strong> set up on the back table at the start of the case</li>
+        <li>That small container is then placed in the <strong>larger OSHA-compliant puncture-resistant sharps container</strong> positioned in a visible location in the OR</li>
+        <li>The large container must be positioned so the CST can easily identify the biohazard symbol and see how full it is</li>
+      </ul>
+    </div>
+
+    <!-- POU DECONTAMINATION -->
+    <p class="sub-label">Guideline II — Point-of-use (POU) instrument decontamination</p>
+    <div class="alert alert-purple">
+      <span class="alert-icon">🔬</span>
+      <div><strong>Why POU decontamination matters:</strong> It is the beginning of the cleaning process and lengthens instrument life by preventing blood and saline from corroding the finish. Blood and body fluids allowed to dry on instruments are far more difficult to remove than when kept moist. Handle contaminated instruments as little as possible during breakdown.</div>
+    </div>
+    <div class="alert alert-red">
+      <span class="alert-icon">🚫</span>
+      <div><strong>Never use saline to clean instruments.</strong> Chloride ions in saline corrode and pit the stainless-steel finish. Use sterile water only.</div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">POU Decontamination · Step by step</div>
+          <div class="acc-head-title">Instrument breakdown procedure — complete sequence</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="steps">
+          <div class="step-item"><p>Tag any instruments needing repair using the surgery department's pre-printed tag system; remove from service immediately.</p></div>
+          <div class="step-item"><p>Contact instrument manufacturer if needed to confirm recommended cleansing solutions; follow manufacturers' IFUs for cleaning. Manufacturer should provide POU decontamination guidance.</p></div>
+          <div class="step-item"><p><strong>Mayo stand instruments:</strong> wipe with a sterile-water–soaked sponge to remove gross soil. Place in a basin of water containing enzyme detergent, or spray with enzyme detergent before placing in the basin. Do not expose instruments to enzyme solution for extended periods — may damage finish. Heavy instruments on the bottom of the basin; lighter/smaller instruments on top.</p></div>
+          <div class="step-item"><p><strong>Sharp instruments</strong> (Gelpi retractors, reamers, trocars): placed in a <em>separate</em> basin. Use a bristle brush to clean trocars and orthopedic reamers.</p></div>
+          <div class="step-item"><p><strong>Delicate instruments:</strong> returned to their original container to prevent damage during transport.</p></div>
+          <div class="step-item"><p><strong>Instruments with a lumen:</strong> flushed with sterile water. For flexible fiberoptic endoscopes, manufacturers often recommend suctioning water through the suction channel at end of procedure to remove debris.</p></div>
+          <div class="step-item"><p><strong>Ratcheted instruments:</strong> leave open and place on a stringer.</p></div>
+          <div class="step-item"><p><strong>Multi-part instruments:</strong> disassemble per manufacturer's written IFU and keep all parts together during transport. Failure to keep parts together causes delays and increases risk of pieces being misplaced or discarded.</p></div>
+          <div class="step-item"><p><strong>Basin transport:</strong> place basin(s) with instruments in a bag marked with the biohazard label before placing in the case cart. This prevents soaking solution from splashing in the case cart and alerts all HCP handling items in the decontamination room that contents are contaminated.</p></div>
+          <div class="step-item"><p><strong>Unused instruments</strong> from the back table: placed in their containers or instrument trays to prevent damage. Ratcheted instruments opened and placed on stringer; multi-part instruments disassembled; heavy instruments on bottom of tray; delicate instruments on top. Tray placed in case cart for transfer to Central Service.</p></div>
+          <div class="step-item"><p><strong>Disposable items:</strong> separated by waste category and disposed of per local, state, and federal regulations. All placed in impervious red or yellow biohazard bags.</p></div>
+          <div class="step-item"><p><strong>Suction canisters and tubing:</strong> discarded per HDO policy and local/state/federal regulations.</p></div>
+          <div class="step-item"><p><strong>PPE:</strong> removed and discarded in the impervious biohazard bag.</p></div>
+          <div class="step-item"><p><strong>Biohazard and linen bags:</strong> removed from the OR and placed in the HDO-designated area for environmental personnel removal.</p></div>
+          <div class="step-item"><p><strong>Medical hand wash</strong> performed by the CST.</p></div>
+          <div class="step-item"><p><strong>Contaminated items transported</strong> in a contained manner (e.g., case cart) from the OR to the decontamination room of Central Service Department.</p></div>
+          <div class="step-item"><p><strong>Preoperative case management routine repeated</strong> in preparation for the next procedure, including repositioning OR furniture.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="sub-label">During the surgical procedure — proactive soil control</p>
+    <div class="card">
+      <div class="card-title"><span class="card-title-icon icon-teal">🧽</span>Keeping instruments clean intraoperatively</div>
+      <ul class="detail-list">
+        <li>Wipe instruments with a <strong>sterile-water moistened sponge</strong> during the procedure to keep free of gross soil — makes POU decontamination faster and more effective</li>
+        <li>Flush any instrument with a lumen using sterile water during the procedure to prevent blood/body fluids from clogging the lumen upon drying</li>
+        <li>Remember: saline is never used for instrument cleaning — use sterile water only</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       TAB 3: CORE PRINCIPLES
+  ════════════════════════════════════ -->
+  <div id="principles" class="section">
+    <h2 class="section-heading">Core Principles</h2>
+    <p class="section-sub">Foundational concepts underlying all sterile field guidelines: principles of asepsis, surgical conscience, economy of motion, and OR traffic management.</p>
+
+    <!-- PRINCIPLES OF ASEPSIS -->
+    <p class="sub-label">Principles of asepsis — foundational rules</p>
+    <div class="card-grid">
+      <div class="card card-full">
+        <div class="card-title"><span class="card-title-icon icon-teal">🛡️</span>Key principles every CST must apply</div>
+        <ul class="detail-list">
+          <li>A sterile field is established for each surgical procedure only</li>
+          <li>Only sterile items may be introduced to or moved within a sterile field (sterile-to-sterile)</li>
+          <li>Once sterile drapes are placed, they must not be repositioned</li>
+          <li>Any item extending or falling below the table edge is considered non-sterile</li>
+          <li>The top of a sterile, draped table is the only portion considered sterile</li>
+          <li>A non-sterile person must never reach over a sterile field</li>
+          <li>A sterile team member must always face the sterile field — never turn the back to it</li>
+          <li>A sterile field not kept under constant observation must be considered non-sterile</li>
+          <li>CST must not break scrub after setting up the sterile field — remaining at the sterile field is also a cost-conscious duty (avoidable re-gown/re-glove charges are passed to the patient)</li>
+          <li>Sitting changes the level of sterility of the gown; upon standing, the CST must change the gown before returning to the sterile back table or Mayo stand</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- STERILE FIELD COVERING -->
+    <p class="sub-label">Covering a sterile field — rules & rationale</p>
+    <div class="alert alert-gold">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>A sterile field must never be covered with a drape that extends below the edges of the table.</strong> The portion extending below the table is non-sterile; the drape cannot be removed without contaminating the field (contaminated sides will contact sterile surfaces upon removal).</div>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-green">✅</span>Acceptable covering method</div>
+        <ul class="detail-list">
+          <li>Cover instrument sets, instruments, and supplies with <strong>reusable green towels</strong> placed over items on the back table</li>
+          <li>Green towels are easily removed and disposed of in the linen hamper</li>
+          <li>Studies indicate covered trays showed no contamination at 4 and 8 hours; no difference in contamination between covered trays at 24 hours</li>
+          <li>Further definitive research (RCTs) needed to establish best practices for covered sterile fields</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-red">❌</span>Why full-drape covering fails</div>
+        <ul class="detail-list">
+          <li>The portion of the cover below the table edge is non-sterile</li>
+          <li>Once placed, the drape cannot be repositioned</li>
+          <li>Removing the drape causes the contaminated sides to contact the sterile field</li>
+          <li>Removal stirs air current upward, depositing airborne microorganisms and dust onto the sterile field</li>
+          <li>Human error is a factor that cannot be controlled — studies confirm errors involve variations from established practice</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SURGICAL CONSCIENCE -->
+    <p class="sub-label">Surgical conscience</p>
+    <div class="alert alert-purple">
+      <span class="alert-icon">🩺</span>
+      <div><strong>Surgical conscience demands:</strong> if an individual breaks sterile technique, they will immediately communicate this to other team members. If another team member identifies the break, the individual who broke technique will take corrective action. The team works together to problem-solve and arrive at the optimal decision applying the principles of asepsis.</div>
+    </div>
+
+    <!-- ECONOMY OF MOTION — ESTABLISHING -->
+    <p class="sub-label">Economy of motion — 8 principles for establishing the sterile field</p>
+    <div class="principle-grid">
+      <div class="principle-card">
+        <div class="principle-letter">A</div>
+        <div class="principle-text">Think fast, but move carefully</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-letter">B</div>
+        <div class="principle-text">Motions should be simple, productive, minimal, and non-repetitive</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-letter">C</div>
+        <div class="principle-text">Divide the back table into sections; work in sections</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-letter">D</div>
+        <div class="principle-text">Establish a logical, sequential, and efficient setup pattern</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-letter">E</div>
+        <div class="principle-text">Handle each item once; avoid rearranging. Once placed, leave it</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-letter">F</div>
+        <div class="principle-text">Move as little as possible; always face the sterile field</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-letter">G</div>
+        <div class="principle-text">Develop "sixth-sense awareness" of the total OR environment — sterile vs. non-sterile areas and movement of others</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-letter">H</div>
+        <div class="principle-text">Be aware of total OR environment; remain spatially oriented to all sterile and non-sterile zones at all times</div>
+      </div>
+    </div>
+
+    <!-- TRAFFIC CONTROL -->
+    <p class="sub-label">Guideline IV — OR traffic control</p>
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num">26%</div>
+        <div class="stat-label">Door openings due to suboptimal pre-op prep (missing supplies)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">27%</div>
+        <div class="stat-label">Door openings by OR personnel with no role in the procedure</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">42–70</div>
+        <div class="stat-label">Door openings per total joint procedure (Peace Arch Hospital study)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">3.2</div>
+        <div class="stat-label">Door openings per procedure after traffic-control strategies implemented</div>
+      </div>
+    </div>
+    <div class="alert alert-teal" style="margin-bottom:1.25rem">
+      <span class="alert-icon">📊</span>
+      <div>Following traffic reduction strategies at Peace Arch Hospital, orthopedic procedure SSI rates dropped from <strong>2.8% to 2.1%</strong>. Strategies included stopping all traffic during joint capsule opening to closure, communicating by phone, and using preoperative templates for implant sizing.</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="card-title-icon icon-navy">🚦</span>Traffic control rules</div>
+      <ul class="detail-list">
+        <li>Only team members assigned to the procedure should enter/leave the OR, on a limited basis</li>
+        <li>OR doors must be kept closed to maintain positive pressure</li>
+        <li>If the OR has more than one entry, the main corridor doors should be used as little as possible</li>
+        <li>Personnel limit entry/exit after sterile supplies are opened — each door opening stirs up dust and particles that can settle on sterile surfaces</li>
+        <li>Airborne particle counts increase with the number of people in the OR, their movements, and the number of times the OR door is opened (Andersson et al.)</li>
+        <li>Controlling traffic also reduces level of conversation, minimizing spread of airborne droplets carrying microorganisms</li>
+      </ul>
+    </div>
+
+    <!-- MEDICAL HAND WASH -->
+    <p class="sub-label">Medical hand wash — definition & technique</p>
+    <div class="card">
+      <div class="card-title"><span class="card-title-icon icon-green">🙌</span>Medical hand wash procedure</div>
+      <ul class="detail-list">
+        <li>Hold hands <strong>lower than elbows</strong> so water flows downward from the wrist to the fingertips</li>
+        <li>Use friction and circular motions to wash the palms and back of the hand</li>
+        <li>Interlace fingers and thumbs to address the spaces in between the digits</li>
+        <li>Rinse by holding hands lower than elbows</li>
+        <li>Dry hands with a clean towel or paper towel</li>
+        <li>Use a <strong>clean paper towel to turn off the water</strong> to prevent reacquiring microorganisms from the faucet handles</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════
+       TAB 4: STANDARDS & REFERENCES
+  ════════════════════════════════════ -->
+  <div id="standards" class="section">
+    <h2 class="section-heading">Standards & Regulatory References</h2>
+    <p class="section-sub">Key regulatory bodies, standards, and definitions referenced in AST Guidelines for Establishing and Breaking Down the Sterile Field.</p>
+
+    <div class="alert alert-navy">
+      <span class="alert-icon">🏛️</span>
+      <div>All AST Guidelines are grounded in evidence from Cochrane Database of Systematic Reviews and MEDLINE® (U.S. National Library of Medicine). Research includes articles, letters, nonrandomized trials, and randomized prospective studies.</div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">OSHA · 29 CFR 1910.1030</div>
+          <div class="acc-head-title">Bloodborne Pathogens Standard</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>Mandates use of PPE including gowns and gloves when exposure to blood or other potentially infectious materials (OPIM) is reasonably anticipated</li>
+          <li>Requires sharps to be handled and discarded according to OSHA sharps safety standards — knife blades, hypodermic needles, and suture needles in OSHA-compliant puncture-resistant containers</li>
+          <li>Requires all contaminated PPE (gowns, gloves, drapes) to be placed in appropriately labeled, leak-proof impervious biohazard bags before transport</li>
+          <li>Requires a medical hand wash after removing gloves and before leaving the contaminated area</li>
+          <li>Do not throw or sling-shot contaminated items into containers — risk of splatter and mucosal exposure to team members</li>
+          <li>Contaminated items must be contained during transport from the OR to the decontamination room</li>
+          <li>Disposable items separated by waste categories and disposed of per local, state, and federal regulations</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">AAMI · ANSI/AAMI ST79:2017</div>
+          <div class="acc-head-title">Comprehensive Guide to Steam Sterilization & Sterility Assurance</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>Primary reference for instrument sterilization, packaging standards, and sterility assurance in healthcare facilities</li>
+          <li>Governs chemical indicator and integrator requirements — indicators must change color to confirm sterilant exposure before a set is opened</li>
+          <li>Multi-level trays require an internal indicator in each tray; if any tray lacks an indicator, the entire set is considered contaminated</li>
+          <li>Governs rigid sterilization container integrity: filter, valve, locking mechanism, and gasket inspection requirements</li>
+          <li>If residual condensate (moisture) is present at the bottom of a container, the instrument tray/basket should be considered non-sterile</li>
+          <li>Ratcheted instruments prevent sterilant penetration and must be opened before sterilization — one ratcheted instrument in a tray renders the entire tray contaminated</li>
+          <li>Referenced for POU decontamination: instrument handling, cleaning solutions, enzyme detergent use, and instrument preparation for transport to Central Service</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">AAMI · ANSI/AAMI PB70:2018</div>
+          <div class="acc-head-title">Liquid Barrier Performance & Classification of Protective Apparel</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>Classifies protective apparel (gowns, drapes) by liquid barrier performance level</li>
+          <li>Referenced in the breaking down guidelines for the non-sterile gown donned after sterile gown/glove removal during breakdown</li>
+          <li>Governs the classification of non-sterile protective medical gowns worn when handling contaminated instruments and waste</li>
+          <li>Establishes the performance standards that define what constitutes adequate protection against blood and body fluid penetration</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">CDC · 2017 SSI Prevention Guideline</div>
+          <div class="acc-head-title">CDC Guideline for Prevention of Surgical Site Infection</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>Primary reference cited by AST for SSI prevention in both establishing and breaking down the sterile field (Berrios-Torres et al., JAMA Surgery 2017)</li>
+          <li>HAIs are the 10th leading cause of death in the United States; more than 20% of HAIs are due to SSIs</li>
+          <li>2006–2009 NHSN data: overall SSI rate of 1.9% based on 849,659 operative procedures — resulting in 16,147 SSIs</li>
+          <li>Cardiovascular surgical SSI increased cost by $37,513 and length of hospital stay by 13.7 days</li>
+          <li>Overall, SSI increases hospital stay by an average of 9.7 days and treatment cost by $20,842</li>
+          <li>Pediatric patients: hospital stays increased by 10.6 days and additional cost of $27,288</li>
+          <li>Stop Sticks Campaign (CDC/NIOSH): referenced for sharps disposal safety and preventing needlestick injuries in healthcare settings</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">WHO · Waste Management</div>
+          <div class="acc-head-title">Safe Management of Wastes from Health-care Activities</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>WHO recommends use of <strong>yellow-colored impervious bags</strong> for contaminated hazardous waste (in addition to, or instead of, the red bags used in many U.S. facilities)</li>
+          <li>Governs the classification and disposal of medical hazardous waste (MDW) — draping material, gloves, gowns, masks, shoe covers contaminated by blood and body fluids</li>
+          <li>All disposable items should be placed in impervious red or yellow biohazard bags per local, state, and federal regulations</li>
+          <li>Suction canisters and tubing discarded per HDO policy in compliance with local, state, and federal regulations</li>
+          <li>Biohazard and linen bags removed from the OR and placed in the HDO-designated area for environmental personnel</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">OSHA · PPE Standard</div>
+          <div class="acc-head-title">Personal Protective Equipment Requirements</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>PPE is specialized clothing or equipment worn for protection against a hazard. General work clothes (uniforms, pants, shirts) not intended as hazard protection are not considered PPE</li>
+          <li>During breakdown: CST must continue wearing head cover, mask, and eye protection, and must don non-sterile gloves and a non-sterile protective gown after removing sterile attire</li>
+          <li>PPE removed at the end of breakdown and placed in the impervious biohazard bag</li>
+          <li>Referenced standard: OSHA Publication 3151 — Personal Protective Equipment (2004)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- GLOSSARY -->
+    <p class="sub-label">Key terms glossary</p>
+    <table class="data-table">
+      <thead>
+        <tr><th>Term</th><th>Definition</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Principles of asepsis</strong></td><td>Practices of the surgical team to prevent the patient from acquiring a postoperative SSI; applied through sterile technique</td></tr>
+        <tr><td><strong>Sterile technique</strong></td><td>The application of the principles of asepsis</td></tr>
+        <tr><td><strong>Surgical conscience</strong></td><td>Demand to immediately communicate a break in sterile technique and take corrective action; applied throughout all perioperative phases</td></tr>
+        <tr><td><strong>Strike-through contamination</strong></td><td>Contamination of a sterile field or package from passage of fluid through a microbial barrier (peel pack or wrapping), allowing microorganisms to enter and contaminate packaged items</td></tr>
+        <tr><td><strong>Impervious</strong></td><td>Not allowing fluid to penetrate; impermeable. Used to describe non-permeable packaging and biohazard bags</td></tr>
+        <tr><td><strong>Pervious</strong></td><td>Allows fluid to penetrate; permeable. Used to describe reusable woven fabric packaging — dropped packages in pervious material are always considered unsterile</td></tr>
+        <tr><td><strong>POU decontamination</strong></td><td>Point-of-use decontamination; the beginning of the cleaning process of instruments performed in the OR immediately after the procedure</td></tr>
+        <tr><td><strong>Economy of motion</strong></td><td>Principles applied to minimize movement, establish logical routines, and maximize efficiency while setting up and breaking down the sterile field</td></tr>
+        <tr><td><strong>Mayo stand</strong></td><td>Small portable stand with tray on top covered with a sterile drape; holds the most frequently used instruments and supplies; positioned over the patient</td></tr>
+        <tr><td><strong>Mayo stand drape</strong></td><td>A sterile cylindrical drape placed over the top portion of the Mayo stand as part of establishing the sterile field</td></tr>
+        <tr><td><strong>Surgeon's preference card</strong></td><td>List of equipment, instrument sets, and supplies a surgeon needs for a specific procedure; used to "pull" items for the case cart</td></tr>
+        <tr><td><strong>Suture bag</strong></td><td>Paper bag included in most back table packs; used by the CST for small trash items such as suture packets and used suture ties</td></tr>
+        <tr><td><strong>Bloodborne pathogens</strong></td><td>Pathogenic microorganisms in human blood that can cause disease, including but not limited to HBV and HIV</td></tr>
+        <tr><td><strong>Hazardous waste (MDW)</strong></td><td>Medical hazardous waste — disposable items (drapes, gloves, gowns, masks, shoe covers) contaminated by blood and body fluids; disposed per local, state, and federal regulations</td></tr>
+        <tr><td><strong>Medical hand wash</strong></td><td>Specific HCP hand wash technique: hands lower than elbows, friction and circular motions, interlaced fingers, rinse hands lower than elbows, dry with clean towel, use paper towel to turn off faucet</td></tr>
+        <tr><td><strong>Foreign particle (FP)</strong></td><td>Contaminant found within a sterile package (lint, bone fragments, burned tissue, hair) — renders the package non-sterile. Consequences include adhesions, granuloma formation, infections, and prolonged inflammation</td></tr>
+        <tr><td><strong>Retained surgical item (RSI)</strong></td><td>An item unintentionally left in a patient after surgery; tip protectors removed from instruments partly to prevent them from becoming an RSI</td></tr>
+        <tr><td><strong>SSI</strong></td><td>Surgical site infection — infection related to an operative procedure occurring at or near the surgical incision within 30 days (or 90 days if prosthetic material implanted)</td></tr>
+        <tr><td><strong>Andragogy</strong></td><td>The concepts of adult learning; adults learn best when information is relevant to work experience, practical rather than academic, and they are actively involved in the process</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- end content-wrap -->
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleAcc(head) {
+  const body = head.nextElementSibling;
+  const chevron = head.querySelector('.acc-chevron');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chevron.classList.toggle('open', !isOpen);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const firstHead = document.querySelector('.acc-head');
+  if (firstHead) toggleAcc(firstHead);
+});
+</script>
+</body>
+</html>
